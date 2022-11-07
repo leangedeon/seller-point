@@ -23,10 +23,10 @@ var orderSchema = new Schema({
     'interest': {type:String, required:true},
     "paymentId": {type:String, required:true},
     "installments": {type:Number, required:true},
-    "totalAmount": {type:Number, required:true},
+    "totalAmount": {type:String, required:true},
     "delivered": {type:String, required:true},
-    "observations": {type:String, required:true},
-    "invoiceNumber": {type:String, required:true},
+    "observations": {type:String, required:false},
+    "invoiceNumber": {type:String, required:false},
     "created": {type: Date, default: Date.now},
 });
 

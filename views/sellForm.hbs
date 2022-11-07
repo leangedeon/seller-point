@@ -3,267 +3,296 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <form class="w-full max-w-lg p-2" method="POST" id="sellForm" name="sellForm">
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="brand">
-            Empresa
-          </label>
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="brand" name="brand">
-              <option>Garbarino</option>
-              <option>Compumundo</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+    <div class="flex-col">
+
+      <div class="w-full">
+        <div class="w-3/6 m-auto text-center p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+          <span class="font-medium">Bien!</span> 
+          Se ha creado el registro nro {{data._id}} <br />
+          Orden de compra a nombre de {{data.name}} {{data.lastName}} <br />
+          Email: {{data.email}} <br />
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <form class="w-full max-w-lg p-2" method="POST" id="sellForm" name="sellForm">
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="brand">
+                Empresa
+              </label>
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="brand" name="brand">
+                  <option>Garbarino</option>
+                  <option>Compumundo</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="store">
+                Sucursal
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="storeName" name="storeName" type="text" placeholder="San Martin">
             </div>
           </div>
-        </div>
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="store">
-            Sucursal
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="storeName" name="storeName" type="text" placeholder="San Martin">
-        </div>
-      </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">
-            First Name
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" name="name" type="text" placeholder="Nombre">
-        </div>
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="lastNname">
-            Last Name
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="lastName" name="lastName" type="text" placeholder="Apellido">
-        </div>
-      </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
-            Email
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" name="email" type="text" placeholder="nombre@hotmail.com">
-        </div>
-      </div>
-      <div class="flex flex-wrap -mx-3 mb-2">
-        
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type-doc">
-            Tipo Doc
-          </label>
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="typeDoc" name="typeDoc">
-              <option>DNI</option>
-              <option>CUIT</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">
+                First Name
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" name="name" type="text" placeholder="Nombre">
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="lastNname">
+                Last Name
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="lastName" name="lastName" type="text" placeholder="Apellido">
             </div>
           </div>
-        </div>
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="city">
-            Doc
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="doc" name="doc" type="text" placeholder="28.299.887">
-        </div>
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
-            Telefono
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="phone" name="phone" type="text" placeholder="4750-9977">
-        </div>
-      </div>
-
-      <div class="flex flex-wrap -mx-3 mb-6 mt-4">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="street">
-            Calle
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="street" name="street" type="text" placeholder="Calle">
-        </div>
-      </div>
-
-
-      <div class="flex flex-wrap -mx-3 mb-2">
-        
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="streetNumber">
-            Altura
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="streetNumber" name="streetNumber" type="text" placeholder="1234">
-        </div>
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="streetFloor">
-            Piso/Dto
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="streetFloor" name="streetFloor" type="text" placeholder="1 B">
-        </div>
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="street-city">
-            Localidad
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="streetCity" name="streetCity" type="text" placeholder="Belgrano">
-        </div>
-      </div>
-
-
-      <div class="flex flex-wrap -mx-3 mb-2 mt-6">
-        
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="typeInvoice">
-            Factura Tipo
-          </label>
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="typeInvoice" name="typeInvoice">
-              <option>Factura A</option>
-              <option>Factura B</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+                Email
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" name="email" type="text" placeholder="nombre@hotmail.com">
             </div>
           </div>
-        </div>
+          <div class="flex flex-wrap -mx-3 mb-2">
+            
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type-doc">
+                Tipo Doc
+              </label>
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="typeDoc" name="typeDoc">
+                  <option>DNI</option>
+                  <option>CUIT</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
 
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="typeClient">
-            Tipo Contribuyente
-          </label>
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="typeClient" name="typeClient">
-              <option>Consumidor Final</option>
-              <option>Responsable Inscripto</option>
-              <option>Monotributista</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="city">
+                Doc
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="doc" name="doc" type="text" placeholder="28.299.887">
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
+                Telefono
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="phone" name="phone" type="text" placeholder="4750-9977">
             </div>
           </div>
-        </div>
 
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sku">
-            Cod Producto
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sku" name="sku" type="text" placeholder="90210">
-        </div>
-
-      </div>
-
-
-
-      <div class="flex flex-wrap -mx-3 mb-2 mt-6">
-        
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
-            Precio
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="price" name="price" type="text" placeholder="3999">
-        </div>
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="discount">
-            Descuento
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="discount" name="discount" type="text" value="0" placeholder="400">
-        </div>
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="interest">
-            Interes
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="interest" name="interest" type="text" value="0" placeholder="300">
-        </div>
-      </div>
-
-      <div class="flex flex-wrap -mx-3 mb-2 mt-6">
-        
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="paymentId">
-            Medio de Pago
-          </label>
-
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paymentId" name="paymentId">
-              <option>1.483/484</option>
-              <option>1.429/430</option>
-              <option>1.33</option>
-              <option>1.564</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          <div class="flex flex-wrap -mx-3 mb-6 mt-4">
+            <div class="w-full px-3">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="street">
+                Calle
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="street" name="street" type="text" placeholder="Calle">
             </div>
           </div>
-        </div>
 
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="installments">
-            Cuotas
-          </label>
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="installments" value="1" name="installments">
-              <option>3</option>
-              <option>6</option>
-              <option>12</option>
-              <option>18</option>
-              <option>30</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+
+          <div class="flex flex-wrap -mx-3 mb-2">
+            
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="streetNumber">
+                Altura
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="streetNumber" name="streetNumber" type="text" placeholder="1234">
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="streetFloor">
+                Piso/Dto
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="streetFloor" name="streetFloor" type="text" placeholder="1 B">
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="street-city">
+                Localidad
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="streetCity" name="streetCity" type="text" placeholder="Belgrano">
             </div>
           </div>
-        </div>
 
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="totalAmount">
-            Monto Financiado
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="totalAmount" name="totalAmount" type="text" placeholder="3400">
-        </div>
-      </div>
 
-      <div class="flex flex-wrap -mx-3 mb-2 mt-6">
-        
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="delivered">
-            Producto entregado?
-          </label>
+          <div class="flex flex-wrap -mx-3 mb-2 mt-6">
+            
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="typeInvoice">
+                Factura Tipo
+              </label>
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="typeInvoice" name="typeInvoice">
+                  <option>Factura A</option>
+                  <option>Factura B</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
 
-          <div class="relative">
-            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="delivered" name="delivered">
-              <option>SI</option>
-              <option>NO</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="typeClient">
+                Tipo Contribuyente
+              </label>
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="typeClient" name="typeClient">
+                  <option>Consumidor Final</option>
+                  <option>Responsable Inscripto</option>
+                  <option>Monotributista</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sku">
+                Cod Producto
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sku" name="sku" type="text" placeholder="90210">
+            </div>
+
+          </div>
+
+
+
+          <div class="flex flex-wrap -mx-3 mb-2 mt-6">
+            
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price">
+                Precio
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="price" name="price" value="0" type="text" placeholder="3999" onchange="calculateTotalAmount()">
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="discount">
+                Descuento
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="discount" name="discount" type="text" value="0" placeholder="400" onchange="calculateTotalAmount()">
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="interest">
+                Interes
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="interest" name="interest" type="text" value="0" placeholder="300">
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="md:flex md:items-center mt-6">
-        <div class="md:w-1/3"></div>
-        <div class="md:w-2/3">
-          <button class="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-            Cargar venta
-          </button>
-        </div>
+          <div class="flex flex-wrap -mx-3 mb-2 mt-6">
+            
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="paymentId">
+                Medio de Pago
+              </label>
+
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paymentId" name="paymentId" onchange="calculateTotalAmount()">
+                  <option value="1.483/484">1.483/484</option>
+                  <option value="1.429/430">1.429/430</option>
+                  <option value="1.608/609">1.608/609</option>
+                  <option value="1.33">1.33</option>
+                  <option value="1.564">1.564</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="installments">
+                Cuotas
+              </label>
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="installments" name="installments" onchange="calculateTotalAmount()">
+                  <option value="">Seleccione</option>
+                  <option value="3">3</option>
+                  <option value="6">6</option>
+                  <option value="12">12</option>
+                  <option value="18">18</option>
+                  <option value="30">30</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="totalAmount">
+                Monto Total
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="totalAmount" name="totalAmount" type="text" placeholder="3400">
+            </div>
+          </div>
+
+          <div class="flex flex-wrap -mx-3 mb-2 mt-6">
+            
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="delivered">
+                Producto entregado?
+              </label>
+
+              <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="delivered" name="delivered">
+                  <option value="SI">SI</option>
+                  <option value="NO">NO</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap -mx-3 mb-2 mt-6">
+            
+            <div class="w-full px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="delivered">
+                Observaciones?
+              </label>
+
+              <textarea name="observations" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
+            </div>
+          </div>
+
+          <div class="md:flex md:items-center mt-6">
+            <div class="md:w-1/3"></div>
+            <div class="md:w-2/3">
+              <button class="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button" onclick="validateForm()">
+                Cargar venta
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+    
+    </div>
 
     <script>
-      function validateForm(formName){
+
+      function validateForm(){
         var erroresnum = 0;
         var errores = '';
-        var elements = document.forms[formName].elements;
-        for (i=0; i<elements.length; i++){
+        var elements = document.forms['sellForm'].elements;
+        for (i=0; i<elements.length-1; i++){
+          console.log(elements[i].name);
           console.log(elements[i].value);
           if(elements[i].value === '') {
             erroresnum++;
@@ -272,11 +301,154 @@
         }
 
         if(erroresnum) {
-          alert('Debe completar todos los campos: ' + errores)
+          alert('Debe completar todos los campos ('+erroresnum+'): ' + errores)
         }else{
           document.forms["sellForm"].submit();
         }
+      }      
+
+      function calculateTotalAmount() {
+
+        const arrPayments = [
+        {
+          id: "1.483/484",
+          installments: 1,
+          interest: 0
+        },
+        {
+          id: "1.483/484",
+          installments: 3,
+          interest: '19,80'
+        },
+        {
+          id: "1.483/484",
+          installments: 6,
+          interest: '37,50'
+        },
+        {
+          id: "1.483/484",
+          installments: 12,
+          interest: '80,04'
+        },
+        {
+          id: "1.483/484",
+          installments: 18,
+          interest: '134,46'
+        },
+        {
+          id: "1.608/609",
+          installments: 1,
+          interest: 0
+        },
+        {
+          id: "1.608/609",
+          installments: 3,
+          interest: '21,96'
+        },
+        {
+          id: "1.608/609",
+          installments: 6,
+          interest: '41,82'
+        },
+        {
+          id: "1.608/609",
+          installments: 12,
+          interest: '98,16'
+        },
+        {
+          id: "1.608/609",
+          installments: 18,
+          interest: '169,38'
+        },
+        {
+          id: "1.429/430",
+          installments: 3,
+          interest: '10,11'
+        },
+        {
+          id: "1.429/430",
+          installments: 6,
+          interest: '20,76'
+        },
+        {
+          id: "1.429/430",
+          installments: 12,
+          interest: '45,00'
+        },
+        {
+          id: "1.429/430",
+          installments: 18,
+          interest: '73,62'
+        },
+        {
+          id: "1.429/430",
+          installments: 30,
+          interest: '99,99'
+        },
+        {
+          id: "1.33",
+          installments: 3,
+          interest: '21,96'
+        },
+        {
+          id: "1.33",
+          installments: 6,
+          interest: '41,82'
+        },
+        {
+          id: "1.33",
+          installments: 12,
+          interest: '98,16'
+        },
+        {
+          id: "1.564",
+          installments: 3,
+          interest: '24,78'
+        },
+        {
+          id: "1.564",
+          installments: 6,
+          interest: '47,58'
+        },
+        {
+          id: "1.564",
+          installments: 12,
+          interest: '109,56'
+        },
+        {
+          id: "1.564",
+          installments: 18,
+          interest: '192,06'
+        }];
+
+        let interest = 0;
+
+        if (document.getElementById("price").value > 0) {
+          const paymentId = document.getElementById("paymentId").value;
+
+          const discount = parseInt(document.getElementById("discount").value);
+
+          const price = parseInt(document.getElementById("price").value);
+
+          const installments = parseInt(document.getElementById("installments").value)
+          
+          arrPayments.find(function(element) {
+            if(element.id === paymentId && element.installments === installments) {
+              interest = parseInt(element.interest);
+            }
+          });
+
+          const totalAmount = price + (price * interest / 100) - discount;
+          
+          document.getElementById("interest").html = interest + '%';
+          document.getElementById("interest").value = interest + '%';
+
+          document.getElementById("totalAmount").html = "$" + totalAmount;
+          document.getElementById("totalAmount").value = "$" + totalAmount;
+        }
       }
     </script>
+
+    
   </body>
 </html>

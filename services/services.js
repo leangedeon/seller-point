@@ -6,11 +6,7 @@ const Q             = require('q');
 const config        = require('../config/config');
 const mongoose      = require('mongoose');
 const ObjectId      = require('mongoose').Types.ObjectId;
-// const Utils         = require('../utils/utils');
 const Order         = require('../models/order.model');
-// const NodeCache     = require('node-cache');
-// const myCache       = new NodeCache();
-// const sha256        = require('sha256');
 const self          = {};
 
 
@@ -40,13 +36,13 @@ self.addOrder = (data) => {
         "sku": data.sku,
         "price": data.price,
         "discount": data.discount,
-        "interest": data.interest,
+        "interest": data.interest || 0,
         "paymentId": data.paymentId,
         "installments": data.installments,
         "totalAmount": data.totalAmount,
-        "delivered": data.totalAmount,
-        "observations": data.totalAmount,
-        "invoiceNumber": data.totalAmount,
+        "delivered": data.delivered,
+        "observations": data.observations || "",
+        "invoiceNumber": data.invoiceNumber || "",
     });
 
     OrderData.save(function (err, results) {
@@ -103,9 +99,9 @@ self.editOrder =  (orderId, newData) => {
       "paymentId": data.paymentId,
       "installments": data.installments,
       "totalAmount": data.totalAmount,
-      "delivered": data.totalAmount,
-      "observations": data.totalAmount,
-      "invoiceNumber": data.totalAmount,
+      "delivered": data.delivered,
+      "observations": data.observations,
+      "invoiceNumber": data.invoiceNumber,
     });
     
     Order.findByIdAndUpdate(new ObjectId(orderId), {$set: updatedData}, {new:true}, function (err, results) {
