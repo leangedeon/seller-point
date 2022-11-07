@@ -257,5 +257,26 @@
         </div>
       </div>
     </form>
+
+    <script>
+      function validateForm(formName){
+        var erroresnum = 0;
+        var errores = '';
+        var elements = document.forms[formName].elements;
+        for (i=0; i<elements.length; i++){
+          console.log(elements[i].value);
+          if(elements[i].value === '') {
+            erroresnum++;
+            errores += '\n -' + elements[i].name + ' ';
+          }
+        }
+
+        if(erroresnum) {
+          alert('Debe completar todos los campos: ' + errores)
+        }else{
+          document.forms["sellForm"].submit();
+        }
+      }
+    </script>
   </body>
 </html>
