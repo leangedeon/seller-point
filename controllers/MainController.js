@@ -14,7 +14,9 @@ self.sellFormSave = async (req, res) => {
     console.log("data", req.body);
     const result = await services.addOrder(req.body);
     console.log("result", result);
-	  res.send(JSON.stringify(req.body));
+	  
+    res.render("sellForm", {data: result});
+
   } catch (error) {
     console.log("Error on sellFormSave: ", error);
   }
