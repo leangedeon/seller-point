@@ -44,6 +44,9 @@ self.addOrder = (data) => {
         "paymentId": data.paymentId,
         "installments": data.installments,
         "totalAmount": data.totalAmount,
+        "delivered": data.totalAmount,
+        "observations": data.totalAmount,
+        "invoiceNumber": data.totalAmount,
     });
 
     OrderData.save(function (err, results) {
@@ -100,6 +103,9 @@ self.editOrder =  (orderId, newData) => {
       "paymentId": data.paymentId,
       "installments": data.installments,
       "totalAmount": data.totalAmount,
+      "delivered": data.totalAmount,
+      "observations": data.totalAmount,
+      "invoiceNumber": data.totalAmount,
     });
     
     Order.findByIdAndUpdate(new ObjectId(orderId), {$set: updatedData}, {new:true}, function (err, results) {
